@@ -1,0 +1,23 @@
+# IntelliJ
+.idea/
+*.iml
+
+# Maven
+target/
+
+# Logs
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Temporary
+*.tmp
+
+# Generated Reports
+reports/*.docx
+reports/*.pdf
+
+# Project Files (optional)
+projects/*.json
