@@ -6,7 +6,7 @@ public enum Severity {
     HIGH("High"),
     MEDIUM("Medium"),
     LOW("Low"),
-    INFO("Info");
+    INFORMATIONAL("Informational");
 
     private final String displayName;
 

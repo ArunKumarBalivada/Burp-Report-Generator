@@ -8,24 +8,34 @@
 
     <groupId>com.arun.burpreport</groupId>
     <artifactId>burp-report-generator</artifactId>
-    <version>0.1.0</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>Burp Report Generator</name>
-    <description>Burp Suite Extension for Automated Penetration Testing Report Generation</description>
+
+    <description>
+        Burp Suite Extension for Automated Penetration Testing Report Generation
+    </description>
 
     <properties>
+
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <montoya.version>2025.5</montoya.version>
+
         <poi.version>5.4.1</poi.version>
+
+        <gson.version>2.13.1</gson.version>
+
+        <jackson.version>2.20.0</jackson.version>
+
     </properties>
 
     <dependencies>
 
-        <!-- Burp Suite Montoya API -->
+        <!-- Burp Montoya API -->
         <dependency>
             <groupId>net.portswigger.burp.extensions</groupId>
             <artifactId>montoya-api</artifactId>
@@ -33,17 +43,32 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Apache POI -->
+        <!-- Apache POI (Word/Excel) -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>${poi.version}</version>
         </dependency>
 
+        <!-- OOXML Schemas -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>ooxml-schemas</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+        <!-- Gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+
+        <!-- Jackson -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.20.0</version>
+            <version>${jackson.version}</version>
         </dependency>
 
     </dependencies>
@@ -52,14 +77,19 @@
 
         <plugins>
 
+            <!-- Java Compiler -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
+
                 <configuration>
-                    <source>21</source>
-                    <target>21</target>
+
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+
                 </configuration>
+
             </plugin>
 
         </plugins>

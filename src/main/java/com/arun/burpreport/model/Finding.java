@@ -3,33 +3,52 @@ package com.arun.burpreport.model;
 import com.arun.burpreport.model.enums.FindingStatus;
 import com.arun.burpreport.model.enums.Severity;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 public class Finding {
 
-    private String id;
+    private final String id;
+
     private String title;
+
     private Severity severity;
+
     private Double cvssScore;
+
     private String cwe;
+
     private String owasp;
+
     private String affectedComponents;
+
     private String description;
+
     private String impact;
+
     private String likelihood;
+
     private String recommendation;
-    private String references;
+
+    private List<String> references;
+
     private String proofOfConcept;
+
     private FindingStatus status;
 
     public Finding() {
+
+        this.id = UUID.randomUUID().toString();
+
         this.status = FindingStatus.DRAFT;
+
+        this.references = new ArrayList<>();
+
     }
 
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getTitle() {
@@ -112,12 +131,30 @@ public class Finding {
         this.recommendation = recommendation;
     }
 
-    public String getReferences() {
+    public List<String> getReferences() {
         return references;
     }
 
-    public void setReferences(String references) {
-        this.references = references;
+    public void setReferences(List<String> references) {
+
+        this.references.clear();
+
+        if (references != null) {
+            this.references.addAll(references);
+        }
+
+    }
+
+    public void addReference(String reference) {
+
+        if (reference != null && !reference.isBlank()) {
+            references.add(reference.trim());
+        }
+
+    }
+
+    public void clearReferences() {
+        references.clear();
     }
 
     public String getProofOfConcept() {
@@ -138,6 +175,9 @@ public class Finding {
 
     @Override
     public String toString() {
-        return id + " - " + title;
+
+        return title != null ? title : id;
+
     }
+
 }

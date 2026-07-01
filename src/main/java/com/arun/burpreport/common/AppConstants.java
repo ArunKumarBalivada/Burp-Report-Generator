@@ -74,4 +74,14 @@ public final class AppConstants {
     public static final String DEFAULT_DATE_TIME_FORMAT =
             "dd-MMM-yyyy HH:mm:ss";
 
+    public static final String FINDING_LIBRARY_FILE =
+            "FindingKnowledgeBase.xlsx";
+
+    public static final String FINDING_LIBRARY_SHEET =
+            "Findings";
+
+    public static final int FINDING_LIBRARY_HEADER_ROW = 0;
+
+    public static final int FINDING_LIBRARY_FIRST_DATA_ROW = 1;
+
 }

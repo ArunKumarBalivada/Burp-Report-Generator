@@ -6,6 +6,7 @@ import com.arun.burpreport.model.enums.Environment;
 import com.arun.burpreport.model.enums.FindingType;
 import com.arun.burpreport.model.enums.ProjectStatus;
 import com.arun.burpreport.model.enums.TestingApproach;
+import com.arun.burpreport.model.enums.AssessmentType;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class Project {
     private TestingApproach testingApproach;
     private FindingType findingType;
     private ProjectStatus status;
+    private AssessmentType assessmentType;
 
     private List<String> scopeItems;
     private String assumptions;
@@ -45,6 +47,7 @@ public class Project {
 
         this.scopeItems = new ArrayList<>();
         this.findings = new ArrayList<>();
+        this.assessmentType = AssessmentType.INITIAL_ASSESSMENT;
     }
 
     public String getProjectId() {
@@ -173,6 +176,14 @@ public class Project {
 
     public int getTotalFindings() {
         return findings.size();
+    }
+
+    public AssessmentType getAssessmentType() {
+        return assessmentType;
+    }
+
+    public void setAssessmentType(AssessmentType assessmentType) {
+        this.assessmentType = assessmentType;
     }
 
     @Override

@@ -8,16 +8,15 @@ target/
 # Logs
 *.log
 
-# OS Files
+# OS
 .DS_Store
 Thumbs.db
 
 # Temporary
-*.tmp
+out/
 
 # Generated Reports
-reports/*.docx
-reports/*.pdf
+reports/
 
-# Project Files (optional)
-projects/*.json
+# Local Settings
+settings.json

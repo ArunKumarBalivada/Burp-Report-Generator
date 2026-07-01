@@ -27,7 +27,7 @@ public class DashboardService {
     }
 
     public int getInfoCount(Project project) {
-        return countBySeverity(project, Severity.INFO);
+        return countBySeverity(project, Severity.INFORMATIONAL);
     }
 
     private int countBySeverity(Project project, Severity severity) {
@@ -59,7 +59,7 @@ public class DashboardService {
         if (getLowCount(project) > 0)
             return Severity.LOW;
 
-        return Severity.INFO;
+        return Severity.INFORMATIONAL;
     }
 
 }

@@ -2,10 +2,17 @@ package com.arun.burpreport.ui;
 
 import javax.swing.*;
 import java.awt.*;
+import com.arun.burpreport.settings.SettingsPanel;
 
 public class MainPanel extends JPanel {
 
     private final JTabbedPane tabbedPane;
+
+    private final ProjectPanel projectPanel;
+    private final FindingPanel findingPanel;
+    private final DashboardPanel dashboardPanel;
+    private final ReportPanel reportPanel;
+    private final SettingsPanel settingsPanel;
 
     public MainPanel() {
 
@@ -13,28 +20,24 @@ public class MainPanel extends JPanel {
 
         tabbedPane = new JTabbedPane();
 
-        tabbedPane.addTab("Project", createPlaceholderPanel("Project Module"));
-        tabbedPane.addTab("Findings", createPlaceholderPanel("Findings Module"));
-        tabbedPane.addTab("Dashboard", createPlaceholderPanel("Dashboard Module"));
-        tabbedPane.addTab("Report", createPlaceholderPanel("Report Generator"));
-        tabbedPane.addTab("Settings", createPlaceholderPanel("Settings"));
+        // Create Panels
+        projectPanel = new ProjectPanel();
+        findingPanel = new FindingPanel();
+        dashboardPanel = new DashboardPanel();
+        reportPanel = new ReportPanel();
+        settingsPanel = new SettingsPanel();
+
+        // Add Tabs
+        tabbedPane.addTab("Project", projectPanel);
+        tabbedPane.addTab("Findings", findingPanel);
+        tabbedPane.addTab("Dashboard", dashboardPanel);
+        tabbedPane.addTab("Report", reportPanel);
+        tabbedPane.addTab("Settings", settingsPanel);
 
         disableProjectTabs();
 
         add(tabbedPane, BorderLayout.CENTER);
-    }
 
-    private JPanel createPlaceholderPanel(String title) {
-
-        JPanel panel = new JPanel(new GridBagLayout());
-
-        JLabel label = new JLabel(title);
-
-        label.setFont(new Font("SansSerif", Font.BOLD, 20));
-
-        panel.add(label);
-
-        return panel;
     }
 
     public void enableProjectTabs() {
@@ -59,6 +62,26 @@ public class MainPanel extends JPanel {
 
     public JTabbedPane getTabbedPane() {
         return tabbedPane;
+    }
+
+    public ProjectPanel getProjectPanel() {
+        return projectPanel;
+    }
+
+    public FindingPanel getFindingPanel() {
+        return findingPanel;
+    }
+
+    public DashboardPanel getDashboardPanel() {
+        return dashboardPanel;
+    }
+
+    public ReportPanel getReportPanel() {
+        return reportPanel;
+    }
+
+    public SettingsPanel getSettingsPanel() {
+        return settingsPanel;
     }
 
 }
