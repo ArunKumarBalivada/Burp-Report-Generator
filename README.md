@@ -1,22 +1,25 @@
 # Burp Report Generator
 
-A Burp Suite extension for automating penetration testing report generation.
+A Burp Suite extension for automated penetration testing report generation.
 
 ## Features
 
 - Project Management
 - Finding Library
-- Word Report Generation
+- Finding Management
+- JSON Project Save/Open
+- DOCX Report Generation
+- Executive Summary
+- Vulnerability Summary
+- Detailed Findings
 - Dashboard
-- Auto Risk Calculation
+- Settings
 
-## Technology Stack
+## Technologies
 
 - Java 21
-- Burp Montoya API
 - Maven
 - Apache POI
-
-## Status
-
-🚧 Under Development
+- Jackson
+- Burp Montoya API
+- Swing
